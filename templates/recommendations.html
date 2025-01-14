@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Recommended Songs</h1>
+
+<!-- Loop through recommended songs -->
+<div id="recommendations">
+    {% if songs %}
+    <ul>
+        {% for song in songs %}
+        <li id="song-{{ song.id }}">
+            <h3>{{ song['name'] }} - {{ song['artist'] }}</h3>
+            <button id="play-button-{{ song.id }}" onclick="playSong('{{ song.id }}')">Play</button>
+            <button id="stop-button-{{ song.id }}" onclick="stopSong('{{ song.id }}')">Stop</button>
+ 
+            <button onclick="interact('{{ song.id }}', 'like')">Like</button>
+            <button onclick="interact('{{ song.id }}', 'dislike')">Dislike</button>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No recommendations available. Try adding more interactions!</p>
+    {% endif %}
+</div>
+
+<div id="global-progress-container" style="display: none;">
+    <h3 id="current-song-title"></h3>
+    <!-- <p>Test</p> -->
+    <div class="progress-container">
+        <div id="global-progress-bar" class="progress-bar"></div>
+    </div>
+</div>
+
+
+<script>
+    // Pass the user's ID to the script for interaction handling
+    const user_id = "{{ user_id }}";
+    </script>
+</body>
+</html>
+
+{% endblock %}

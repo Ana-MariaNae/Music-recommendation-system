@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Create Your Account</h1>
+
+<form id="genre-form" method="POST" action="/create_account">
+    <label for="user_id">User ID:</label>
+    <input type="text" id="user_id" name="user_id" value="{{ user_id }}" required>
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+
+    <label for="birthday">Birthday:</label>
+    <input type="date" id="birthday" name="birthday" required>
+
+
+    <p>Select at least 3 favorite genres:</p>
+    <input type="checkbox" id="pop" name="genre" value="pop"> Pop<br>
+    <input type="checkbox" id="rap" name="genre" value="rap"> Rap<br>
+    <input type="checkbox" id="rock" name="genre" value="rock"> Rock<br>
+    <input type="checkbox" id="latin" name="genre" value="latin"> Latin<br>
+    <input type="checkbox" id="rb" name="genre" value="r&b"> R&B<br>
+    <input type="checkbox" id="edm" name="genre" value="edm"> EDM<br>
+
+    <button type="button" onclick="createUser()">Create Account</button>
+
+</form>
+{% endblock %}
