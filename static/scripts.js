@@ -101,28 +101,49 @@ function stopSong(songId) {
 
 function createUser() {
     const userId = document.getElementById("user_id").value;
+    const password = document.getElementById("password").value; // New password field
     const name = document.getElementById("name").value;
     const gender = document.getElementById("gender").value;
     const birthday = document.getElementById("birthday").value;
-    console.log(birthday);
     const genres = Array.from(document.querySelectorAll("input[name='genre']:checked")).map(
         (checkbox) => checkbox.value
     );
-    console.log(genres);
-    console.log(JSON.stringify({ user_id: userId, name, gender, birthday, genres }));
+
+    console.log(JSON.stringify({ user_id: userId, password, name, gender, birthday, genres }));
 
     fetch("/create_account", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user_id: userId, name, gender, birthday, genres }),
+        body: JSON.stringify({ user_id: userId, password, name, gender, birthday, genres }),
     }).then((response) => {
         console.log(response);
         if (response.ok) {
-            window.location.href = `/recommendations/${user_id}`;
+            window.location.href = `/recommendations/${userId}`;
         } else {
             alert("Error creating user!");
         }
     });
+}
+
+function likeSong(songId) {
+    fetch("/like", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ song_id: songId }),
+    })
+        .then((response) => {
+            if (response.ok) {
+                alert("Song liked successfully!");
+            } else {
+                alert("Failed to like the song. Try again!");
+            }
+        })
+        .catch((error) => {
+            console.error("Error liking the song:", error);
+            alert("An error occurred.");
+        });
 }

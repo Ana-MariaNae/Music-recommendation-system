@@ -1,24 +1,36 @@
+
 body {
+    background-color: #121212;
+    color: #FFFFFF;
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
 }
-button {
-    margin-left: 10px;
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #1DB954;
 }
-
-/* static/css/style.css */
-.progress-container {
-    width: 100%;
-    background-color: #f3f3f3;
-    border-radius: 5px;
-    overflow: hidden;
-    height: 20px;
-    margin-top: 10px;
+.navbar a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
 }
-
-.progress-bar {
-    height: 100%;
-    background-color: #4caf50;
-    width: 0%;
-    transition: width 0.2s;
+.dashboard {
+    padding: 2rem;
 }
+.song-card {
+    background-color: #1E1E1E;
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.song-card:hover {
+    background-color: #282828;
+}
+    

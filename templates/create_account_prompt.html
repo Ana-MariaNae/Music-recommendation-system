@@ -6,6 +6,9 @@
     <label for="user_id">User ID:</label>
     <input type="text" id="user_id" name="user_id" value="{{ user_id }}" required>
 
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" required>
 
@@ -19,7 +22,6 @@
     <label for="birthday">Birthday:</label>
     <input type="date" id="birthday" name="birthday" required>
 
-
     <p>Select at least 3 favorite genres:</p>
     <input type="checkbox" id="pop" name="genre" value="pop"> Pop<br>
     <input type="checkbox" id="rap" name="genre" value="rap"> Rap<br>
@@ -28,7 +30,6 @@
     <input type="checkbox" id="rb" name="genre" value="r&b"> R&B<br>
     <input type="checkbox" id="edm" name="genre" value="edm"> EDM<br>
 
-    <button type="button" onclick="createUser()">Create Account</button>
-
+    <button type="submit">Create Account</button>
 </form>
 {% endblock %}

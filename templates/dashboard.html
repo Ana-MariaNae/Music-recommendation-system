@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+    <title>Dashboard</title>
+    <script src="/static/scripts.js" defer></script> 
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/dashboard">Home</a>
+        <a href="/logout">Logout</a>
+    </nav>
+    <div class="dashboard">
+        <h1>Welcome to Your Dashboard</h1>
+        <div>
+            {% for song in songs %}
+            <div class="song-card">
+                <div>
+                    <h2>{{ song.name }}</h2>
+                    <p>Artist: {{ song.artist }}</p>
+                </div>
+                <div class="actions">
+                    <button onclick="likeSong('{{ song.id }}')">Like</button> 
+                    <button onclick="playSong('{{ song.id }}')">Play</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
